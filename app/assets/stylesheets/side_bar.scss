@@ -1,0 +1,23 @@
+.side-bar {
+  width: 300px;
+  color: $white;
+
+  &__header {
+    background-color: $side_blue_header;
+    height: 100px;
+    padding: 0 20px;
+
+    &__name {
+      font-weight: bold;
+      font-size: $side_header_font;
+      letter-spacing: 1px;
+      line-height: 100px;
+    }
+  }
+
+  &__groups {
+    background-color: $side_blue_groups;
+    height: calc(100vh - 100px);
+    padding: 20px 20px 0 20px;
+  }
+}
