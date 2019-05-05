@@ -1,11 +1,15 @@
 .side-bar {
   width: 300px;
   color: $white;
+  box-sizing: border-box;
 
   &__header {
     background-color: $side_blue_header;
+    align-items: center;
     height: 100px;
     padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
 
     &__name {
       font-weight: bold;
@@ -13,11 +17,37 @@
       letter-spacing: 1px;
       line-height: 100px;
     }
+
+    &__icon {
+      display: flex;
+
+      li {
+        display: inline-block;
+        margin-left: 5px;
+      }
+
+      .icon {
+        color: $white;
+      }
+    }
   }
 
   &__groups {
     background-color: $side_blue_groups;
     height: calc(100vh - 100px);
     padding: 20px 20px 0 20px;
+
+    &__group {
+      margin-bottom: 40px;
+
+      .group-name {
+        margin-bottom: 5px;
+        font-size: $side_group_name;
+      }
+
+      .latest-message {
+        font-size: $side_latest_message;
+      }
+    }
   }
 }

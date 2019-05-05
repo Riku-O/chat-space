@@ -2,5 +2,26 @@
   .side-bar__header
     %h3.side-bar__header__name
       小野寺陸
-    
+    %ul.side-bar__header__icon
+      %li.side-bar__header__icon__new-group
+      = link_to do
+        = fa_icon 'pencil-square-o', class: 'icon'
+      %li.side-bar__header__icon__edit-user
+      = link_to do
+        = fa_icon 'cog', class: 'icon'
   .side-bar__groups
+    .side-bar__groups__group
+      .group-name
+        tech::expart
+      .latest-message
+        sample！sample！
+    .side-bar__groups__group
+      .group-name
+        tech::expart
+      .latest-message
+        sample！sample！
+    .side-bar__groups__group
+      .group-name
+        tech::expart
+      .latest-message
+        sample！sample！
