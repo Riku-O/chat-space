@@ -11,5 +11,29 @@
       .edit-btn
         Edit
     .messages
+      .message
+        .message-info
+          .message-info__name
+            小野寺陸
+          .message-info__date
+            2019/05/04(Sat) 00:12:51
+        .message-text
+          ああああああああああああああああああああああ
+      .message
+        .message-info
+          .message-info__name
+            小野寺陸
+          .message-info__date
+            2019/05/04(Sat) 00:12:51
+        .message-text
+          ああああああああああああああああああああああ
+
     .form
+      %form
+        %input.form__message{placeholder: "type a message", type: "text"}
+        .form__mask
+          %label.form__mask__image
+            = fa_icon 'image', class: 'icon'
+            %input.hidden{type: 'file'}
+        %input.form__submit-btn{type: "submit", value: "Send"}
 

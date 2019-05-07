@@ -36,6 +36,7 @@
     background-color: $side_blue_groups;
     height: calc(100vh - 100px);
     padding: 20px 20px 0 20px;
+    box-sizing: border-box;
 
     &__group {
       margin-bottom: 40px;
