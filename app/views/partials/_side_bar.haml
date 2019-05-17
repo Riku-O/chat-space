@@ -1,27 +1,19 @@
 .side-bar
   .side-bar__header
     %h3.side-bar__header__name
-      小野寺陸
+      = current_user.name
     %ul.side-bar__header__icon
       %li.side-bar__header__icon__new-group
-      = link_to do
+      = link_to new_group_path do
         = fa_icon 'pencil-square-o', class: 'icon'
       %li.side-bar__header__icon__edit-user
-      = link_to do
+      = link_to edit_user_path(current_user) do
         = fa_icon 'cog', class: 'icon'
   .side-bar__groups
     .side-bar__groups__group
-      .group-name
-        tech::expart
-      .latest-message
-        sample！sample！
-    .side-bar__groups__group
-      .group-name
-        tech::expart
-      .latest-message
-        sample！sample！
-    .side-bar__groups__group
-      .group-name
-        tech::expart
-      .latest-message
-        sample！sample！
+      - current_user.groups.each do |group|
+        = link_to group_messages_path(group) do
+          .group-name
+            = group.name
+          .latest-message
+            = group.show_last_message

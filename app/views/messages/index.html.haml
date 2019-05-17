@@ -1,39 +1,24 @@
 .wrapper
-  = render partial: "partials/side_bar"
+  = render "partials/side_bar"
 
   .chat
     .header
       .current-group
         .current-group__name
-          Chat-Space
+          = @group.name
         .current-group__member-name
-          Member: 小野寺 陸
+          Member: 
+          = current_user.name
       .edit-btn
         Edit
     .messages
-      .message
-        .message-info
-          .message-info__name
-            小野寺陸
-          .message-info__date
-            2019/05/04(Sat) 00:12:51
-        .message-text
-          ああああああああああああああああああああああ
-      .message
-        .message-info
-          .message-info__name
-            小野寺陸
-          .message-info__date
-            2019/05/04(Sat) 00:12:51
-        .message-text
-          ああああああああああああああああああああああ
+      = render @messages
 
     .form
-      %form
-        %input.form__message{placeholder: "type a message", type: "text"}
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: "form__message", placeholder: "type a message"
         .form__mask
-          %label.form__mask__image
+          = f.label :image, class: "form__mask__image" do
             = fa_icon 'image', class: 'icon'
-            %input.hidden{type: 'file'}
-        %input.form__submit-btn{type: "submit", value: "Send"}
-
+            = f.file_field :image, class: "hidden"
+        = f.submit "send", class: "form__submit-btn"

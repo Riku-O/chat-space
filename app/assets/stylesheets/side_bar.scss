@@ -42,12 +42,14 @@
       margin-bottom: 40px;
 
       .group-name {
-        margin-bottom: 5px;
+        margin-bottom: 40px;
         font-size: $side_group_name;
+        color: $white;
       }
 
       .latest-message {
         font-size: $side_latest_message;
+        color: $white;
       }
     }
   }
