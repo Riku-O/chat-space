@@ -1,10 +1,7 @@
 $(function () {
   function buildHTML(message) {
-    if (message.image) {
-      var image = `<img class="message-text__image" src=${message.image}>`;
-    } else {
-      var image = "";
-    }
+    var image = message.image ? `<img class="message-text__image" src=${message.image}>` : "";
+
     var html = `<div class='message'>
                   <div class='message-info'>
                     <div class='message-info__name'>
@@ -25,7 +22,6 @@ $(function () {
   }
   $('#new_message').on('submit', function (e) {
     e.preventDefault();
-    console.log("あああ")
     var formData = new FormData(this);
     var url = $(this).attr('action')
     $.ajax({
@@ -37,8 +33,6 @@ $(function () {
         contentType: false
       })
       .done(function (data) {
-        console.log(data);
-
         var html = buildHTML(data);
         $('.messages').append(html);
         $('.messages').animate({
@@ -48,7 +42,6 @@ $(function () {
         $("#new_message")[0].reset();
       })
       .fail(function (data) {
-        console.log(data);
         alert('error');
       });
   });

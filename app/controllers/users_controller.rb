@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def index
-    # binding.pry
-    @users = User.where('name LIKE(?)',"%#{params[:member_name]}%").limit(10)
+    @users = User.where.not(id: current_user.id).('name LIKE(?)',"%#{params[:member_name]}%").limit(10)
     respond_to do |format|
       format.json
     end
@@ -11,7 +10,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    # binding.pry
     if current_user.update(user_params)
       redirect_to root_path
     else

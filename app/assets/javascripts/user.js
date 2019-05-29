@@ -28,7 +28,7 @@ $(function () {
 
   $('#user-search-field').on('keyup', function () {
     var input = $('#user-search-field').val();
-    console.log(input);
+
 
     $.ajax({
         type: 'GET',
@@ -39,7 +39,6 @@ $(function () {
         dataType: 'json'
       })
       .done(function (data) {
-        console.log(data);
         $("#user-search-result").empty();
         if (data.length !== 0) {
           data.forEach(function (user) {
@@ -55,8 +54,8 @@ $(function () {
   });
 
   $(document).on("click", ".user-search-add", function () {
-    var name = $(this).attr('data-user-name');
-    var user_id = $(this).attr('data-user-id');
+    var name = $(this).data('user-name');
+    var user_id = $(this).data('user-id');
     $(this).parent().remove();
     appendMembers(name, user_id);
   })
