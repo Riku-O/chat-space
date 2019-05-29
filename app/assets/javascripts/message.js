@@ -1,5 +1,7 @@
 $(function () {
   function buildHTML(message) {
+    var image = message.image ? `<img class="message-text__image" src=${message.image}>` : "";
+
     var html = `<div class='message'>
                   <div class='message-info'>
                     <div class='message-info__name'>
@@ -13,7 +15,7 @@ $(function () {
                     <p class='message-text__content'>
                       ${message.content}
                     </p>
-                      ${message.image}
+                      ${image}
                   </div>
                 </div>`
     return html;
@@ -26,7 +28,7 @@ $(function () {
         url: url,
         type: "POST",
         data: formData,
-        datatype: 'json',
+        dataType: 'json',
         processData: false,
         contentType: false
       })
@@ -39,7 +41,7 @@ $(function () {
         $(".form__submit-btn").prop('disabled', false);
         $("#new_message")[0].reset();
       })
-      .fail(function () {
+      .fail(function (data) {
         alert('error');
       });
   });
