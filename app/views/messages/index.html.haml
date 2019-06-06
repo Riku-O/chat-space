@@ -3,14 +3,14 @@
 
   .chat
     .header
-      .current-group
+      .current-group{data: {group: {id: "#{@group.id}"}}}
         .current-group__name
           = @group.name
         .current-group__member-name
           Member: 
           = current_user.name
       .edit-btn
-        Edit
+        = link_to "Edit", edit_group_path(@group), class: "edit-btn-inside"
     .messages
       = render partial: "message", locals: {messages: @messages}
     .form
