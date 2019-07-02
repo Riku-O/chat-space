@@ -20,6 +20,10 @@
         margin-top: 15px;
         font-size: $chat_member_name;
         color: $chat_gray_header;
+
+        &__sub {
+          display: inline-block;
+        }
       }
     }
 
